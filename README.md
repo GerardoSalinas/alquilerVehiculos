@@ -40,6 +40,15 @@ OLTP al Almacenamiento analítico.
 ![Diagrama de la solución](/screenshots/ProyectoTerraform.png "Diagrama de Arquitectura")
 
 ## Evidencias de Despliegue
+
 ![Evidencia de Despligue](/screenshots/evidenciaDataBricks.png "Despligue exitoso")
 
 ![Evidencia de Despligue](/screenshots/evidenciaPortalAzure.png "Despligue exitoso")
+
+## Reflexiones finales
+
+1. Se identificaron ciertas depenencias implícitas como que antes de crear la base de datos se debe crear el servidor de base de datos. También que antes de crear el servicio data factory se debe crear los recursos OLTP y OLAP.
+
+2. Se separan los almacenamientos OLTP y OLAP, principalmente porque sirven diferentes propósitos además de que ambas tienen una gran cantidad de consultas de modo que si fueran una sola, la experiencia de usuario se vería serveramente afectada debido a la sobre carga de consultas en una sola base de datos.
+
+3. La principal ventaja que tiene usar un servicio de orquestación frente a un script manual programado es la capacidad de responder a eventos dentro de la arquitectura, además que ofrece la opción de configurar alertas.
